@@ -1,241 +1,211 @@
 $(function(){
-    
-    //추천검색어
-    const $input = $('.search>form>fieldset>input');
-    const $auto_complete = $('.auto_complete');
-    const $btn_cls = $('.auto_cls')
-    $input.on('click',function(e){
-        $auto_complete.fadeIn(300)
-        e.stopPropagation();
-        $input.value(" ")
-    });
-    $btn_cls.on('click',function(evt){
+    const $contactbtn = $('#wrap>.container>.outline>header>.snb>#main>.select>.show');
+    const $contact = $('#wrap>.container>.outline>header>.snb>#main>.select>ul');
+    $contactbtn.on('click',function(evt){
         evt.preventDefault();
-        $auto_complete.hide();
+        evt.stopPropagation();
+        $contact.show();
     });
-    //영역외 클릭시 팝업닫기
-    $("body").on('click',function(){
-        //검색어 팝업닫기
-        $auto_complete.hide();
-        //로그인 팝업닫기
-        $loginPop.hide();
-        $joinbtn.removeClass('on');
-    });
-    
-    
-    //메인메뉴
-    const $nav = $("header>nav");
-    const $gnb = $("header>nav>.gnb>li");
-    const $sub = $gnb.find(".sub");
-    let nowIdx = 0;
-    $gnb.on({
-        "mouseenter":function(){
-            nowIdx = $gnb.index(this);
-            $sub.hide().eq(nowIdx).show().parent().addClass('show').siblings().removeClass("show");
-        }         
-    });
-    $nav.on('mouseleave',function(){
-        $sub.hide();
+    $('body').on('click',function(){
+        $contact.hide();
+        $choosemini.fadeOut(300);
     });
 
-
-
-    //로그인 팝업
-    const $login = $('.join_box');
-    const $loginPop = $('.join_box>.popup_join');
-    const $loginCls = $('.join_sns>.join_cls');
-    const $joinbtn = $('.join_box>button');
-    $login.on('click',function(e){
-        $loginPop.toggle().parent().find('button').toggleClass('on');
-        e.stopPropagation();
-    });
-    $loginCls.on('click',function(){
-        $loginPop.hide();
-        $joinbtn.removeClass('on');
-    });
-
-    //신규앨범
-    const $new_album_prev = $('.new_music_nav>li>.prev');
-    const $new_album_next = $('.new_music_nav>li>.next');
-    const $albumslides = $('.new_music_prame>.new_music_album');
-    let albumIdx = 0;
-    //new_music_nav prev에 대한 클릭이벤트
-    $new_album_next.on('click',function(evt){
-        evt.preventDefault();
-        albumIdx = $('.new_music_nav>li').index(this)
-        $albumslides.stop().animate({
-            left : 960*albumIdx
-        },250);
-        $('.new_music_page>li>span').text('2')
-        $(this).parent().addClass('on').siblings().removeClass('on')
-    });
-    //new_music_nav next에 대한 클릭이벤트
-    $new_album_prev.on('click',function(evt){
-        evt.preventDefault();
-        albumIdx = $('.new_music_nav>li').index(this)
-        $albumslides.stop().animate({
-            left : 0*albumIdx
-        },250);
-        $('.new_music_page>li>span').text('1')
-        $(this).parent().addClass('on').siblings().removeClass('on')
-    });
-    
-
-    //배너
-    const $bnr = $('section>.main_bnr>.main>.bnr>.slides-bnr>li');
-    const $bnr_ict = $('section>.main_bnr>.main>.bnr>.slides-bnr-indicator>li>a');
-    const $bnr_toggle = $('section>.main_bnr>.main>.bnr>.bnr_toggle');
-    let bnrIdx = 0;
-    let bnroldIdx = null;
-    let intervalkey = null;
-
-    const $bnrAuto = function(){
-        intervalkey = setInterval(function(){
-            bnroldIdx = bnrIdx;
-            if(bnrIdx<5){
-                bnrIdx++;
-            }else if(bnrIdx=5){
-                bnrIdx=0;
+    const playaudio = $('#wrap>aside>.audio>.player>.btn>li>.play');
+    const stopaudio = $('#wrap>aside>.audio>.player>.btn>li>.stop');
+    const playnext = $('#wrap>aside>.audio>.player>.btn>li>.next');
+    const $myAudio = document.getElementById("myAudio");
+    const title = $('#wrap>aside>.audio>.player>.tit>span');
+    const $progress = document.getElementsByTagName('progress');
+    let nowplaying = 0;
+    let musicStop = true;
+    setInterval(function(){
+        if(musicStop == false){
+            $progress[0].value=nowplaying;
+            nowplaying++;
+            if(nowplaying>100){
+                musicStop = true;
             }
-            
-            $bnr.eq(bnroldIdx).stop().fadeOut(300);
-            $bnr.eq(bnrIdx).stop().fadeIn(300);
-            $bnr_ict.eq(bnrIdx).parent().addClass('on').siblings().removeClass('on')
-        },2000);
-    };
-    //함축예정
-    
-    $bnr_ict.on('click',function(evt){
-        evt.preventDefault();
-        clearInterval(intervalkey);
-        bnrIdx = $bnr_ict.index(this);
-        $bnr_toggle.addClass('pause');
-        $bnr.eq(bnrIdx).stop().fadeIn(300);
-        $bnr_ict.eq(bnrIdx).parent().addClass('on').siblings().removeClass('on')
-    });
-    $bnr_toggle.on('click',function(){
-        $(this).toggleClass('pause');
-
-        if($(this).hasClass('pause')){
-            //재생중 상태
-            clearInterval(intervalkey);
-            //재생을 멈추는 코드
-        }else{
-            //멈춰진 상태
-            $bnrAuto();
-            //자동재생 하는 코드
-            // $(this).toggleClass('pause');
         }
-
+    },2580)
+    //현재 재생중인 mp3 파일의 상태값을 출력
+    playaudio.on('click',function(evt){
+        evt.preventDefault();
+        $myAudio.volume = 0.5;
+        $myAudio.play();
+        title.text('공원에서 - 유희열')
+        musicStop = false;
+        
+    }); 
+    stopaudio.on('click',function(evt){
+        evt.preventDefault();
+        $myAudio.pause();
+        title.text('재생버튼을 눌러주세요')
+        musicStop = true;
     });
+    playnext.on('click',function(evt){
+        evt.preventDefault();
+        $myAudio.load();
+        $myAudio.volume = 0.5;
+        $myAudio.play();
+        title.text('공원에서 - 유희열')
+        musicStop= false;
+        nowplaying = 0;
+        
+    })
     
 
-    //차트
-    const $chart_list = $('.chart>.chart_list>li')
-    $chart_list.on('mouseover',function(){
-        $(this).addClass('on').siblings().removeClass('on')
+    const bg_pink = $('#wrap>aside>.info>.bg_color>li:nth-child(2)>a');
+    const bg_skyblue = $('#wrap>aside>.info>.bg_color>li:nth-child(3)>a');
+    const bg_yellow = $('#wrap>aside>.info>.bg_color>li:nth-child(4)>a');
+    const bg_yellowgreen = $('#wrap>aside>.info>.bg_color>li:nth-child(5)>a');
+
+    bg_pink.on('click',function(evt){
+        evt.preventDefault();
+        $('#wrap').css({
+            "background-color" : "#ffb7ce"
+        })
+    })
+    bg_skyblue.on('click',function(evt){
+        evt.preventDefault();
+        $('#wrap').css({
+            "background-color" : "#80c3f0"
+        })
+    })
+    bg_yellow.on('click',function(evt){
+        evt.preventDefault();
+        $('#wrap').css({
+            "background-color" : "#fcff00"
+        })
+    })
+    bg_yellowgreen.on('click',function(evt){
+        evt.preventDefault();
+        $('#wrap').css({
+            "background-color" : "#00ff1e"
+        })
+    })
+
+    const $container = $('#main>.thumb>.container>.list')
+    const prev = $('#main>.thumb>.container>.left')
+    const next = $('#main>.thumb>.container>.right')
+
+    prev.on('click',function(evt){
+        evt.preventDefault();
+        $container.stop().animate({
+            left : 0
+        },500)
+        $(this).removeClass('on').siblings('a').addClass('on');
+    })
+    next.on('click',function(evt){
+        evt.preventDefault();
+        $container.stop().animate({
+            left : -35
+        },500)
+        $(this).removeClass('on').siblings('a').addClass('on');
+    })
+
+    // 메뉴바
+    const $gnb = $('#wrap>.container>.outline>nav>.gnb>li>a');
+    const $main = $('#wrap>.container>.outline>header>.snb>div');
+    const $section = $('#wrap>.container>.outline>#cont>section')
+    let $gnbIdx = 0;
+
+    $gnb.on('click',function(evt){
+        evt.preventDefault();
+        $gnbIdx = $gnb.index(this);
+        $main.eq($gnbIdx).show().siblings().hide();
+        $gnb.eq($gnbIdx).parent().addClass('on').siblings().removeClass('on')
+        $section.eq($gnbIdx).show().siblings('section').hide();
+        if($gnbIdx==4){
+            $main.eq(0).show().siblings().hide();
+        }
+    });
+    
+
+    //프로필
+    const $profileBtn = $('#wrap>.container>.outline>header>.snb>#profile>.category>.tab>li>a');
+    const $profilePg =$('#wrap>.container>.outline>#cont>section#profile>div')
+    let $profileIdx = 0;
+
+    $profileBtn.on('click',function(evt){
+        evt.preventDefault();
+        $profileIdx=$profileBtn.index(this);
+        $profilePg.eq($profileIdx).show().siblings().hide();
+        $profileBtn.eq($profileIdx).parent().addClass('on').siblings().removeClass('on');
     });
 
-    //포커스이벤트
-    const $focus = $('section>.middle>.focus>.focus_slides>.focus_slides_img>li');
-    const $focusind = $('.focus_slides>.focus_slides_indicator>li>a');
-    const $focus_toggle = $('.focus>.focus_slides>.focus_slides_toggle');
-    const $focus_prev = $('.focus_slides>.btn>.focus_slides_prev')
-    const $focus_next = $('.focus_slides>.btn>.focus_slides_next')
-    let focusIdx = 0;
-    let focusoldIdx = null;
-    let intervalkey1 = null;
-    //수정예정
-    $focus_prev.on('click',function(evt){
+    //게시판
+    const $board_tit = $('#board>.on_board>.b_body>.post>.post_tit');
+    const $board_page = $('#board>.on_board>.b_body>.post>.board_cont');
+    const $board_snb = $('#wrap>.container>.outline>header>.snb>#board>.category>.tab>li>a')
+    const $board = $('section#board>.on_board');
+    let $boardSnbIdx = 0;
+    let $boardIdx = 0;
+    $board_snb.on('click',function(evt){
         evt.preventDefault();
-        if(focusIdx<=6){
-            focusIdx--;
-        }else if(focusIdx=-1){
-            focusIdx=6
-        }
-        clearInterval(intervalkey1);
-        $focus_toggle.addClass('pause')
-        $focus.eq(focusIdx).stop().fadeIn(300).siblings().fadeOut(300);
-        $focusind.eq(focusIdx).parent().addClass('on').siblings().removeClass('on')
-    });
-    //수정
-    $focus_next.on('click',function(evt){
+        $boardSnbIdx=$board_snb.index(this);
+        $board.eq($boardSnbIdx).show().siblings().hide();
+    })
+    $board_tit.on('click',function(evt){
         evt.preventDefault();
-        if(focusIdx<=5){
-            focusIdx++;
-        }else if(focusIdx=6){
-            focusIdx=0;
-        }
-        clearInterval(intervalkey1);
-        $focus_toggle.addClass('pause')
-        $focus.eq(focusIdx).stop().fadeIn(300).siblings().fadeOut(300);
-        $focusind.eq(focusIdx).parent().addClass('on').siblings().removeClass('on')
-    });
-    const $focusAuto = function(){
-        intervalkey1 = setInterval(function(){
-            focusoldIdx = focusIdx;
-            if(focusIdx<6){
-                focusIdx++;
-            }else if(focusIdx=6){
-                focusIdx=0
-            }
-            $focus.eq(focusoldIdx).stop().fadeOut(300);
-            $focus.eq(focusIdx).stop().fadeIn(300);
-            $focusind.eq(focusIdx).parent().addClass('on').siblings().removeClass('on')
-        },2000);
-    }
-    $focusind.on('click',function(evt){
-        evt.preventDefault();
-        focusIdx = $focusind.index(this);
-        clearInterval(intervalkey1);
-        $focus_toggle.addClass('pause');
-        $focus.eq(focusoldIdx).stop().fadeOut(300);
-        $focus.eq(focusIdx).stop().fadeIn(300);
-        $focusind.eq(focusIdx).parent().addClass('on').siblings().removeClass('on')
-    });
-    $focus_toggle.on('click',function(evt){
-        evt.preventDefault();
-        $(this).toggleClass('pause');
+        $boardIdx = $board_tit.index(this);
+        console.log($boardIdx);
+        $board_page.eq($boardIdx).show().parent().siblings().children('.board_cont').hide();
+    })
 
-        if($(this).hasClass('pause')){
-            //재생중 상태
-            clearInterval(intervalkey1);
-            //재생을 멈추는 코드
-        }else{
-            //멈춰진 상태
-            $focusAuto();
-            //자동재생 하는 코드
-            // $(this).toggleClass('pause');
-        }
-    });
 
-    //공지사항
-    const $noticeCon = $('footer>.footer_top>.notice>.container>.notice_slides>li');
-    const $noticeprev = $('.footer_top>.notice>.btn>.prev');
-    const $noticenext = $('.footer_top>.notice>.btn>.next');
-    let noticeIdx = 0;
-    $noticenext.on('click',function(evt){
+    // 방명록
+    const $minimi = $('#visitor>.visitor_area>.visitor_input>form>fieldset>a');
+    const $choosemini =$('#visitor>.visitor_area>.visitor_input>form>fieldset>p');
+    $minimi.on('click',function(evt){
         evt.preventDefault();
-        if(noticeIdx<2){
-            noticeIdx++;
-        }else if(noticeIdx=2){
-            noticeIdx=0;
-        }
-        $noticeCon.hide().eq(noticeIdx).fadeIn(300);
-    });
-    $noticeprev.on('click',function(evt){
+        evt.stopPropagation();
+        $choosemini.fadeIn(300);
+    })
+    
+
+    //바로가기
+    const $quickMnubtn = $('section#main>.main_top>.shot_cut>li>a');
+    const $quickMove = $('section#main>.main_top>.news>li>a');
+    const $quickview = $('section#main>.thumb>.container>.list>li>a')
+    let $quickMnuIdx=0;
+    let $quickMoveIdx=0;
+    let $quickviewIdx=0;
+    const $photoScroll = $('#wrap>.container>.outline>#cont>section#gallery>.photo_gallery')
+    $quickMnubtn.on('click',function(evt){
         evt.preventDefault();
-        if(noticeIdx>0){
-            noticeIdx--;
-        }else if(noticeIdx=-1){
-            noticeIdx=2;
+        $quickMnuIdx = $quickMnubtn.index(this);
+        $main.eq($quickMnuIdx+2).show().siblings().hide();
+        $gnb.eq($quickMnuIdx+2).parent().addClass('on').siblings().removeClass('on')
+        $section.eq($quickMnuIdx+2).show().siblings('section').hide();
+        if($gnbIdx==4){
+            $main.eq(0).show().siblings().hide();
         }
-        $noticeCon.hide().eq(noticeIdx).fadeIn(300);
-    });
-    console.log(noticeIdx);
-    //윈도우 시작시 자동실행
-    $(window).on('load',function(){
-        $bnrAuto();
-        $focusAuto();
-    });
+    })
+    $quickMove.on('click',function(evt){
+        evt.preventDefault()
+        $quickMoveIdx=$quickMove.index(this);
+        $('#wrap>.container>.outline>#cont>section#board').show().siblings().hide();
+        $('#wrap>.container>.outline>header>.snb>div#board').show().siblings().hide();
+        $('#wrap>.container>.outline>nav>.gnb>li.board>a').parent().addClass('on').siblings().removeClass('on');
+    })
+    
+    $quickview.on('click',function(evt){
+        evt.preventDefault();
+        $quickviewIdx=$quickview.index(this);
+        $('#wrap>.container>.outline>#cont>section#gallery').show().siblings().hide();
+        $('#wrap>.container>.outline>header>.snb>div#gallery').show().siblings().hide();
+        $('#wrap>.container>.outline>nav>.gnb>li.gallery>a').parent().addClass('on').siblings().removeClass('on');
+        $photoScroll.stop().animate({
+            scrollTop : 580*$quickviewIdx
+        },300)
+        $gnb.eq(2).parent().addClass('on').siblings().removeClass('on')
+    })
+    $photoScroll.on('scroll',function(){
+        let scrollTop = $photoScroll.scrollTop();
+        console.log(scrollTop);
+    })
+
+
 });
+
