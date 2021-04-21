@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지니뮤직-재근</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./js/javascript.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1 class="sr-only">지니뮤직-재근</h1>
+            <div class="hd_top">
+                <ul class="payment">
+                    <li><a href="#"><p></p> 이용권 구매</a></li>
+                    <li><a href="#">상품권 등록</a></li>
+                    <li><a href="#">캐시 충전</a></li>
+                </ul>
+                <ul class="app">
+                    <li><a href="#">웹플레이어</a></li>
+                    <li><a href="#">PC플레이어</a></li>
+                    <li><a href="#">지니앱</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <h2 class="logo"><a href="#">로고</a></h2>
+                <form action="search" method="get">
+                    <fieldset>
+                        <legend class="sr-only">검색 탭</legend>
+                        <input type="text" id="search-text" name="search-text" placeholder="오늘의 추천곡" autocomplete="off">
+                        <button type="button">검색</button>
+                        <!-- <input type="submit" value="검색" class="submit_search"> -->
+                        <ul class="auto_complete">
+                            <li class="on"><a href="#">인기검색어</a></li>
+                            <li>
+                                <div class="popular">
+                                    <ul>
+                                        <li><a href="#">미스트롯2</a></li>
+                                        <li><a href="#">아이유</a></li>
+                                        <li><a href="#">MC몽</a></li>
+                                        <li><a href="#">임영웅</a></li>
+                                        <li><a href="#">Love Day</a></li>
+                                        <li><a href="#">샤이니</a></li>
+                                        <li><a href="#">양지은</a></li>
+                                        <li><a href="#">자장가</a></li>
+                                        <li><a href="#">브레이브걸스(brave girls)</a></li>
+                                        <li><a href="#">롤린</a></li>
+                                    </ul>
+                                    <a class="auto_cls" href="#">닫기</a>
+                                </div>
+                            </li>                            
+                            <li><a href="#">최근 검색어</a></li>
+                            <li>
+                                <div class="auto">
+                                    <ul>
+                                        <li><a href="#"><span></span></a></li>
+                                        <li><a href="#"><span></span></a></li>
+                                        <li><a href="#"><span></span></a></li>
+                                        <li><a href="#"><span></span></a></li>
+                                        <li><a href="#"><span></span></a></li>
+                                    </ul>
+                                    <a class="auto_del" href="#">최근 검색어 삭제</a>
+                                    <a class="auto_cls" href="#">닫기</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
+            </div>
+            <nav>
+                <ul class="gnb">
+                    <li>
+                        <a href="#">지니차트</a>
+                        <ol class="chart sub">
+                            <li><a href="#">TOP200</a></li>
+                            <li><a href="#">장르별 차트</a></li>
+                            <li><a href="#">시대별 차트</a></li>
+                            <li><a href="#">뮤직비디오 차트</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">최신음악</a>
+                        <ol class="new sub">
+                            <li><a href="#">최신 곡</a></li>
+                            <li><a href="#">최신 앨범</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">장르음악</a>
+                        <ol class="genre sub">
+                            <li><a href="#">가요</a></li>
+                            <li><a href="#">POP</a></li>
+                            <li><a href="#">OST</a></li>
+                            <li><a href="#">트롯</a></li>
+                            <li><a href="#">EDM</a></li>
+                            <li><a href="#">Jazz</a></li>
+                            <li><a href="#">Classic</a></li>
+                            <li><a href="#">JPOP</a></li>
+                            <li><a href="#">CCM</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">지니TV</a>
+                        <ol class="tv sub">
+                            <li><a href="#">홈</a></li>
+                            <li><a href="#">Mnet 방송</a></li>
+                            <li><a href="#">뮤직비디오</a></li>
+                            <li><a href="#">뮤지션</a></li>
+                            <li><a href="#">이색영상</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">추천</a>
+                        <ol class="recommand sub">
+                            <li><a href="#">추천</a></li>
+                            <li><a href="#">인기</a></li>
+                            <li><a href="#">태그</a></li>
+                            <li><a href="#">히스토리</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">매거진</a>
+                        <ol class="magazine sub">
+                            <li><a href="#">클래식공감</a></li>
+                            <li><a href="#">스페셜</a></li>
+                            <li><a href="#">지니뮤직 챌린지</a></li>
+                            <li><a href="#">방송</a></li>
+                            <li><a href="#">뮤직리포트</a></li>
+                            <li><a href="#">이주의 앨범</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">뮤직허그</a></li>
+                </ul>
+                <div class="join_box">
+                    <button type="button">로그인/회원가입</button>
+                    <!-- <a href="#"></a> -->
+                    <ul class="popup_join">
+                        <li class="login">
+                            <a href="#" class="join">genie 로그인</a>
+                            <ol class="find_info">
+                                <li><a href="#">아이디 찾기</a></li>
+                                <li><a href="#">비밀번호 찾기</a></li>
+                            </ol>
+                            <a class="new_member_join" href="#">회원가입</a>
+                        </li>
+                        <li class="join_sns">
+                            <ol class="sns">
+                                <li><a href="#">카카오 로그인</a></li>
+                                <li><a href="#">페이스북 로그인</a></li>
+                                <li><a href="#">트위터 로그인</a></li>
+                                <li><a href="#">애플 로그인</a></li>
+                            </ol>
+                            <a class="join_cls" href="#">닫기</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section>
+            <article class="new_music">
+                <nav>
+                    <h3>최신음악</h3>
+                    <ul class="new_music_mnu">
+                        <li class="on"><a href="#">종합</a></li>
+                        <li><a href="#">국내</a></li>
+                        <li><a href="#">국외</a></li>
+                    </ul>
+                    <div class="new_music_page_box">
+                        <ul class="new_music_page">
+                            <li><span>1</span></li>
+                            <li>/</li>
+                            <li>2</li>
+                        </ul>
+                        <ol class="new_music_nav">
+                            <li class="on"><a href="#" class="prev">이전</a></li>
+                            <li><a href="#" class="next">다음</a></li>
+                        </ol>
+                    </div>
+                </nav>
+                <div class="new_music_prame">
+                    <ul class="new_music_album">
+                        <li class="new_music_album_pg on">
+                            <ol>
+                                <li>
+                                    <a href="#"><img src="./images/album/81917433_1614846667202_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">래원(layone)</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">래원 (Layone)</a></li>
+                                            <li><a href="#">chamelayone</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81926727_1614909366709_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">dosii & I love you <br> orchestra swing style</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">dosii & I love you orchestra swing style</a></li>
+                                            <li><a href="#">swan</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81927487_1614849431434_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">소야(SOYA)&딘딘</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">소야(SOYA)&딘딘</a></li>
+                                            <li><a href="#">안녕? 나야! OST Part.3 <br> (kbs2 수목드라마)</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81927498_1614842556936_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">헤일리 (Hailey)</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">헤일리 (Hailey)</a></li>
+                                            <li><a href="#">Somewhere Else</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81927618_1614907978531_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">JJK</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">JJK</a></li>
+                                            <li><a href="#">Compound #11</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81928052_1614762174336_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">OWLER (아울러)</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">OWLER (아울러)</a></li>
+                                            <li><a href="#">봄의 왈츠</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81928570_1614820044693_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">빨간의자</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">빨간의자</a></li>
+                                            <li><a href="#">Re ; 오늘밤</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929083_1614847014867_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">various Artist</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">various Artist</a></li>
+                                            <li><a href="#">나의 별에게 OST <br> (웹드라마)</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929132_1614823489742_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">BehindtheMoon</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">BehindtheMoon</a></li>
+                                            <li><a href="#">시멘틱에러 OST</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929172_1614840462694_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">파스텔 걸스</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">파스텔 걸스</a></li>
+                                            <li><a href="#">옆집누나</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929222_1614821343080_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">제미나이 & 박재범</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">제미나이 & 박재범</a></li>
+                                            <li><a href="#">Trip</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929261_1614757226027_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">Xbf</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">Xbf</a></li>
+                                            <li><a href="#">빛</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="new_music_album_pg">
+                            <ol>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929366_1614838485482_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">박지훈</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">박지훈</a></li>
+                                            <li><a href="#">Call U Up (Prod. by Primary)</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929367_1614818541925_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">김나희</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">김나희</a></li>
+                                            <li><a href="#">미스 몬테크리스토 OST <br>Part.3 (KBS2 일일 <br> 드라마)</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929370_1614844626372_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">강규현</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">강규현</a></li>
+                                            <li><a href="#">서른</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929513_1614906077350_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">Kiss On The Key</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">Kiss On The Key</a></li>
+                                            <li><a href="#">Painter</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929593_1614908725682_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">Maroon 5 & Megan <br> Thee Stallion</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">Maroon 5 & Megan Thee Stallion</a></li>
+                                            <li><a href="#">Beautiful Mistakes</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81929599_1614904925352_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">방성우</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">방성우</a></li>
+                                            <li><a href="#">헤어지기가 이별하기가</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81930294_1614844834150_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">뚜라미 (Turami)</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">뚜라미 (Turami)</a></li>
+                                            <li><a href="#">blue ; colors</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81930308_1614838068374_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">아이즈 (IZ)</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">아이즈 (IZ)</a></li>
+                                            <li><a href="#">StorIZ:New Born</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81931313_1614850679942_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">예하나</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">예하나</a></li>
+                                            <li><a href="#">기도</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81931328_1614903376938_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">various artists</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">various artists</a></li>
+                                            <li><a href="#">내일은 미스트롯2 결승전 <br> 인생곡 미션</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81931849_1614843626072_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">아녹 (Anoc)</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">아녹 (Anoc)</a></li>
+                                            <li><a href="#">Satellite</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./images/album/81932259_1614864326157_1_200x200.jpg" alt=""></a>
+                                    <p class="album_tit">DJ snake & Selena <br> Gomez</p>
+                                    <div class="album_play">
+                                        <ul class="album_info">
+                                            <li class="album_singer"><a href="#">DJ snake & Selena <br> Gomez</a></li>
+                                            <li><a href="#">Selfish Love</a></li>
+                                        </ul>
+                                        <ul class="album_nav">
+                                            <li class="album_play_btn"><a href="#">재생</a></li>
+                                            <li class="album_cart_btn"><a href="#">담기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            <article class="main_bnr">
+                <div class="main">
+                    <div class="bnr">
+                        <ul class="slides-bnr">
+                            <li><a href="#">회원혜택</a></li>
+                            <li><a href="#">씨티카드</a></li>
+                            <li><a href="#">아무튼출근</a></li>
+                            <li><a href="#">제휴</a></li>
+                            <li><a href="#">너목보</a></li>
+                            <li><a href="#">엠넷</a></li>
+                        </ul>
+                        <ol class="slides-bnr-indicator">
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                        </ol>
+                        <!-- <a class="bnr_toggle" href="#"></a> -->
+                        <button type="button" class="bnr_toggle">재생</button>
+                    </div>
+                    <a href="#" class="right_bnr">엠카사전투표</a>
+                </div>
+            </article>
+            <article class="middle">
+                <div class="chart">
+                    <div class="title">
+                        <h3>실시간 차트</h3>
+                        <h4><span class="time">2021.03.11 11:00</span></h4>
+                    </div>
+                    <ul class="chart_list">
+                        <!-- 플렉스 세로나열 -->
+                        <!-- 포지셔닝 -->
+                        <!-- 호버 : 포지션값 변경 -->
+                        <li class="list_1 on">
+                            <ol>
+                                <li class="ranking">1</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">롤린 (Rollin')</a></li>
+                                <li class="chart_singer"><a href="#">브레이브걸스(Brave girls)</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_2">
+                            <ol>
+                                <li class="ranking">2</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">Celebrity</a></li>
+                                <li class="chart_singer"><a href="#">아이유 (IU)</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_3">
+                            <ol>
+                                <li class="ranking">3</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">PARANOIA</a></li>
+                                <li class="chart_singer"><a href="#">강다니엘</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_4">
+                            <ol>
+                                <li class="ranking">4</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">좋은 이별이 있을리가 없잖아(feat. 조현아 of 어반자카파)</a></li>
+                                <li class="chart_singer"><a href="#">MC몽</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_5">
+                            <ol>
+                                <li class="ranking">5</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">Beautiful Beautiful</a></li>
+                                <li class="chart_singer"><a href="#">온앤오프(ONF)</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_6">
+                            <ol>
+                                <li class="ranking">6</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">Don't Call ME</a></li>
+                                <li class="chart_singer"><a href="#">샤이니</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_7">
+                            <ol>
+                                <li class="ranking">7</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song">Dynamite<a href="#"></a></li>
+                                <li class="chart_singer"><a href="#">방탄소년단</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_8">
+                            <ol>
+                                <li class="ranking">8</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">내 손을 잡아</a></li>
+                                <li class="chart_singer"><a href="#">아이유 (IU)</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_9">
+                            <ol>
+                                <li class="ranking">9</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">밝게 빛나는 별이 되어 비춰줄게</a></li>
+                                <li class="chart_singer"><a href="#">송이한</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="list_10">
+                            <ol>
+                                <li class="ranking">10</li>
+                                <li class="album_jacket"><a href="#"></a></li>
+                                <li class="chart_song"><a href="#">VVS (Feat.JUSTHIS) (Prod. By GroovyRoom)</a></li>
+                                <li class="chart_singer"><a href="#">미란이 (Mirani) & 먼치맨 (MUNCHMAN) & Khundi Panda & 머쉬베놈 (MUSHVENOM)</a></li>
+                                <li>
+                                    <ul class="chart_button">
+                                        <li class="chart_play"><a href="#">재생</a></li>
+                                        <li class="chart_cart"><a href="#">담기</a></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                        <div class="chartbtn">
+                            <div class="btn">
+                                <a href="" class="play">전체듣기</a>
+                                <a href="" class="cart">전체추가</a>
+                            </div>
+                            <a href="" class="top200">TOP200 바로가기 ></span></a>
+                        </div>
+                    </ul>
+                </div>
+                <div class="focus">
+                    <h3>Hot &amp; New</h3>
+                    <div class="focus_slides">
+                        <ul class="focus_slides_img">
+                            <li class="on"><a href="#">아울러</a></li>
+                            <li><a href="#">박재범</a></li>
+                            <li><a href="#">헤일리</a></li>
+                            <li><a href="#">19XX</a></li>
+                            <li><a href="#">Qzi</a></li>
+                            <li><a href="#">빨간의자</a></li>
+                            <li><a href="#">OK구글</a></li>
+                        </ul>
+                        <ol class="focus_slides_indicator">
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                        </ol>
+                        <div class="btn">
+                            <a href="#" class="focus_slides_prev">이전</a>
+                            <a href="#" class="focus_slides_next">다음</a>
+                        </div>
+                        <!-- <button type="button" class="focus_slides_toggle"></button> -->
+                        <a href="#" class="focus_slides_toggle">재생/멈춤</a>
+                    </div>
+                    <ul class="new_album">
+                        <li>
+                            <a href="#">
+                                <ul>
+                                    <!-- <li class="img"></li> -->
+                                    <li><h4>New Album</h4></li>
+                                    <li class="title">9 to 5</li>
+                                    <li class="singer">오갱 (O-gang)</li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <ul>
+                                    <!-- <li class="img"></li> -->
+                                    <li><h4>New Album</h4></li>
+                                    <li class="title">나는</li>
+                                    <li class="singer">진오 (Jin.O)</li>
+                                </ul>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+        <footer>
+            <div class="footer_top">
+                <div class="notice">
+                    <h4><a href="">공지사항</a></h4>
+                    <div class="container">
+                        <ul class="notice_slides">
+                            <li><a href="#">[둠칫둠칫! 걸크미 넘치는 언니들의 자신감 상승 팝송] 감상평 이벤트</a></li>
+                            <li><a href="#">&lsaquo;올해 기대되는 소띠 아티스트를 뽑아라&rsaquo; 프로모션 경품 당첨자 발표</a></li>
+                            <li><a href="#">뮤직허그 서비스 긴급 시스템 점검 안내 (3/4 목, 04:00~05:30)</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn">
+                        <a href="#" class="prev">이전보기</a>
+                        <a href="#" class="next">다음보기</a>
+                    </div>
+                </div>
+                <div class="service">
+                    <ul class="service_mnu">
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">고객센터</a></li>
+                        <li><a href="#">이용안내</a></li>
+                        <li><a href="#"><strong>서비스 전체보기 &rsaquo;</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="link">
+                <ul class="link_info">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+                    <li><a href="#">청소년보호정책</a></li>
+                    <li><a href="#">위치기반 서비스 이용약관</a></li>
+                    <li><a href="#">이메일주소무단수집거부</a></li>
+                    <li><a href="#">서비스 이용문의</a></li>
+                    <li><a href="#">제휴 문의</a></li>
+                </ul>
+                <ul class="social">
+                    <li><a href="#">유튜브</a></li>
+                    <li><a href="#">블로그</a></li>
+                    <li><a href="#">페이스북</a></li>
+                </ul>
+            </div>
+            <div class="info">
+                <h4 class="logo">지니뮤직</h4>
+                <ul class="basic">
+                    <li>대표이사 조훈</li>
+                    <li>서울 강남구 테헤란로415 (L7HOTELS강남타워 6,7,8층)</li>
+                    <li>사업자등록번호 314-81-03453</li>
+                    <li>통신판매일신고 2013-서울강남-01302</li>
+                    <li>개인정보관리책임자 김태훈 본부장</li>
+                    <li>문의전화 1577-5337</li>
+                    <li><a href="#">사업자정보확인 ></a></li>
+                    <li>호스팅제공자: (주)지니뮤직</li>
+                    <li>COPYRIGHT&copy;GENIE MUSIC CORP ALL RIGHTS RESERVED.</li>
+                    <li>Renewal By Jack&BeanTree</li>
+                </ul>
+            </div>
+            <div class="emblem">
+                <ul>
+                    <li><a href="#"><img src="./images/emblem_kdce.png" alt=""></a></li>
+                    <li><img src="./images/emblem_copyright.png" alt=""></li>
+                    <li><img src="./images/emblem_amo.png" alt=""></li>
+                    <li><img src="./images/emblem_kib.png" alt=""></li>
+                    <li><img src="./images/emblem_brand_2018.png" alt=""></li>
+                    <li><img src="./images/emblem_user.png" alt=""></li>
+                    <li><img src="./images/emblem_qs.png" alt=""></li>
+                    <li><img src="./images/emblem_music_202101.png" alt=""></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
