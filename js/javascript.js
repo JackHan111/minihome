@@ -171,7 +171,11 @@ $(function(){
     let $quickMnuIdx=0;
     let $quickMoveIdx=0;
     let $quickviewIdx=0;
-    const $photoScroll = $('#wrap>.container>.outline>#cont>section#gallery>.photo_gallery')
+    const $photoScroll = $('#wrap>.container>.outline>#cont>section#gallery>.photo_gallery');
+    $photoScroll.on('scroll',function(){
+        let scrollTop = $photoScroll.scrollTop();
+        console.log(scrollTop);
+    })
     $quickMnubtn.on('click',function(evt){
         evt.preventDefault();
         $quickMnuIdx = $quickMnubtn.index(this);
@@ -185,9 +189,12 @@ $(function(){
     $quickMove.on('click',function(evt){
         evt.preventDefault()
         $quickMoveIdx=$quickMove.index(this);
-        $('#wrap>.container>.outline>#cont>section#board').show().siblings().hide();
-        $('#wrap>.container>.outline>header>.snb>div#board').show().siblings().hide();
-        $('#wrap>.container>.outline>nav>.gnb>li.board>a').parent().addClass('on').siblings().removeClass('on');
+        $('#wrap>.container>.outline>#cont>section#gallery').show().siblings().hide();
+        $('#wrap>.container>.outline>header>.snb>div#gallery').show().siblings().hide();
+        $photoScroll.stop().animate({
+            scrollTop : 575*$quickMoveIdx
+        },300)
+        $gnb.eq(2).parent().addClass('on').siblings().removeClass('on')
     })
     
     $quickview.on('click',function(evt){
@@ -195,17 +202,12 @@ $(function(){
         $quickviewIdx=$quickview.index(this);
         $('#wrap>.container>.outline>#cont>section#gallery').show().siblings().hide();
         $('#wrap>.container>.outline>header>.snb>div#gallery').show().siblings().hide();
-        $('#wrap>.container>.outline>nav>.gnb>li.gallery>a').parent().addClass('on').siblings().removeClass('on');
         $photoScroll.stop().animate({
-            scrollTop : 580*$quickviewIdx
+            scrollTop : 575*$quickviewIdx
         },300)
         $gnb.eq(2).parent().addClass('on').siblings().removeClass('on')
     })
-    $photoScroll.on('scroll',function(){
-        let scrollTop = $photoScroll.scrollTop();
-        console.log(scrollTop);
-    })
-
+    
 
 });
 

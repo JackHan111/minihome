@@ -440,6 +440,10 @@ section#main>.main_top>.shot_cut>li:hover>a>span{
 #main>.thumb>.container>.list>li:nth-child(3)>a{
     background-image: url(../images/main/line.png);
 }
+#main>.thumb>.container>.list>li:nth-child(4)>a{
+    background-image: url(../images/minigame/main.png);
+}
+
 
 #main>.thumb>.container>a{
     display: block;
@@ -1055,6 +1059,9 @@ section#gallery{
     margin: 20px auto;
     line-height: 18px;
 }
+#gallery>.photo_gallery>div>.explanation>a{
+    color: #1924f3;
+}
 #gallery>.photo_gallery>div>.cont_coment{
     position: relative;
     width: 445px;
@@ -1148,7 +1155,10 @@ section#gallery{
 }
 #board>.on_board>.b_body>.post{
     width: 435px;
+    height: 50px;
     margin: 0 auto;
+    text-align: center;    
+    line-height: 50px;
     border-bottom: 1px solid #dedede;
 }
 #board>.on_board>.b_body>.post>.post_tit{
@@ -1187,7 +1197,6 @@ section#gallery{
     margin: 0 auto;
     height: 150px;
 }
-
 #board>.on_board>.b_body>.post>.board_cont>p{
     position: relative;
     width: 100%;
