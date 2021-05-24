@@ -1,5 +1,5 @@
 $(function(){
-    alert('현재 페이지는 확대율 110% 에 맞추어져 있습니다.');
+    
     const $contactbtn = $('#wrap>.container>.outline>header>.snb>#main>.select>.show');
     const $contact = $('#wrap>.container>.outline>header>.snb>#main>.select>ul');
     $contactbtn.on('click',function(evt){
