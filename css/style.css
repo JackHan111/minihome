@@ -1050,17 +1050,19 @@ section#gallery{
     width: 420px;
     margin: 0 auto;
 }
-#gallery>.photo_gallery>div>.frame>img{
+#gallery>.photo_gallery>div>.frame>a{
+    display: block;
     width: 420px;
     height: 350px;
+}
+#gallery>.photo_gallery>div>.frame>a>img{
+    width: 100%;
+    height: 100%;
 }
 #gallery>.photo_gallery>div>.explanation{
     width: 420px;
     margin: 20px auto;
     line-height: 18px;
-}
-#gallery>.photo_gallery>div>.explanation>a{
-    color: #1924f3;
 }
 #gallery>.photo_gallery>div>.cont_coment{
     position: relative;
@@ -1393,3 +1395,31 @@ section#gallery{
     border: 1px solid #cfcfcf;
     background-color: #fff;
 }
+
+code{
+    width: 120px;
+    position: absolute;
+    bottom: 55px;
+    right: 35px;
+}
+code>h3{
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 10px;
+}
+code>ul{
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+}
+code>ul>li>a{
+    display: block; 
+    width: 35px;
+    height: 35px;
+}
+code>ul>li{
+    height: 45px;
+}
+code>ul>li:nth-child(1)>a{background-image: url(../images/html.png);background-size: cover;}
+code>ul>li:nth-child(2)>a{background-image: url(../images/css.png);background-size: cover;}
+code>ul>li:nth-child(3)>a{background-image: url(../images/javascript.png);background-size: cover;}

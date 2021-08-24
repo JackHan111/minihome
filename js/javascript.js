@@ -1,5 +1,4 @@
 $(function(){
-    
     const $contactbtn = $('#wrap>.container>.outline>header>.snb>#main>.select>.show');
     const $contact = $('#wrap>.container>.outline>header>.snb>#main>.select>ul');
     $contactbtn.on('click',function(evt){
@@ -181,7 +180,7 @@ $(function(){
         evt.preventDefault();
         $quickMnuIdx = $quickMnubtn.index(this);
         $main.eq($quickMnuIdx+2).show().siblings().hide();
-        $gnb.eq($quickMnuIdx+2).parent().addClass('on').siblings().removeClass('on')
+        $gnb.eq($quickMnuIdx+2).parent().addClass('on').siblings().removeClass('on');
         $section.eq($quickMnuIdx+2).show().siblings('section').hide();
         if($gnbIdx==4){
             $main.eq(0).show().siblings().hide();
@@ -190,7 +189,7 @@ $(function(){
     $quickMove.on('click',function(evt){
         evt.preventDefault()
         $quickMoveIdx=$quickMove.index(this);
-        $('#wrap>.container>.outline>#cont>section#gallery').show().siblings().hide();
+        $('#wrap>.container>.outline>#cont>section#gallery').show().siblings('section').hide();
         $('#wrap>.container>.outline>header>.snb>div#gallery').show().siblings().hide();
         $photoScroll.stop().animate({
             scrollTop : 575*$quickMoveIdx
@@ -201,7 +200,7 @@ $(function(){
     $quickview.on('click',function(evt){
         evt.preventDefault();
         $quickviewIdx=$quickview.index(this);
-        $('#wrap>.container>.outline>#cont>section#gallery').show().siblings().hide();
+        $('#wrap>.container>.outline>#cont>section#gallery').show().siblings('section').hide();
         $('#wrap>.container>.outline>header>.snb>div#gallery').show().siblings().hide();
         $photoScroll.stop().animate({
             scrollTop : 575*$quickviewIdx
