@@ -174,7 +174,6 @@ $(function(){
     const $photoScroll = $('#wrap>.container>.outline>#cont>section#gallery>.photo_gallery');
     $photoScroll.on('scroll',function(){
         let scrollTop = $photoScroll.scrollTop();
-        console.log(scrollTop);
     })
     $quickMnubtn.on('click',function(evt){
         evt.preventDefault();
